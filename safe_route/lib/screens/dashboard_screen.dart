@@ -1,4 +1,3 @@
-// lib/dashboard_screen.dart
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
@@ -54,17 +53,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
             decoration: BoxDecoration(
               color: Colors.amber[50],
               borderRadius: BorderRadius.circular(25),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.1),
+                  color: Color(0x1A000000),
                   blurRadius: 10,
-                  offset: const Offset(0, 4),
+                  offset: Offset(0, 4),
                 ),
               ],
             ),
-            child: TextField(
-              controller: _searchController,
-              decoration: const InputDecoration(
+            child: const TextField(
+              decoration: InputDecoration(
                 hintText: "Buscar estudiantes o rutas...",
                 prefixIcon: Icon(Icons.search),
                 border: InputBorder.none,
@@ -111,11 +109,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
-                                  color: Colors.black.withValues(alpha: 0.1),
+                                  color: Color(0x1A000000),
                                   blurRadius: 12,
-                                  offset: const Offset(0, 4),
+                                  offset: Offset(0, 4),
                                 ),
                               ],
                             ),
@@ -135,7 +133,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           color: ruta.estado == 'Activa' ? Colors.green : Colors.orange,
                                           borderRadius: BorderRadius.circular(12),
                                         ),
-                                        child: Text(ruta.estado, style: const TextStyle(color: Colors.white)),
+                                        child: const Text("Activa", style: TextStyle(color: Colors.white)),
                                       ),
                                     ],
                                   ),
@@ -187,7 +185,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Widget _buildStatsRow(BuildContext context) {
-    return Row(
+    return const Row(
       children: [
         Flexible(
           child: _StatCard(
@@ -197,7 +195,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: Colors.blue,
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         Flexible(
           child: _StatCard(
             icon: Icons.route,
@@ -206,7 +204,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             color: Colors.green,
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         Flexible(
           child: _StatCard(
             icon: Icons.warning,
@@ -286,11 +284,11 @@ class _StatCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: Color(0x1A000000),
             blurRadius: 12,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),

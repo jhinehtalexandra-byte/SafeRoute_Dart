@@ -1,5 +1,5 @@
+// lib/screens/inicio_screen.dart
 import 'package:flutter/material.dart';
-//import '../models/models.dart';
 
 class InicioScreen extends StatelessWidget {
   const InicioScreen({super.key});
@@ -8,18 +8,17 @@ class InicioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: const Icon(Icons.directions_bus, color: Colors.white),
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Icon(Icons.directions_bus, 
+                  color: Colors.white, 
+                  size: 24),
             ),
-            const SizedBox(width: 8),
-            const Text('SafeRoute', style: TextStyle(fontWeight: FontWeight.bold)),
+            SizedBox(width: 8),
+            Text('SafeRoute', 
+                style: TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
         backgroundColor: const Color(0xFF1E293B),
@@ -30,9 +29,12 @@ class InicioScreen extends StatelessWidget {
               onPressed: () {}, 
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.amber,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
               ),
-              child: const Text('Iniciar Sesión', style: TextStyle(fontSize: 12)),
+              child: const Text('Iniciar Sesión', 
+                  style: TextStyle(fontSize: 12)),
             ),
           ),
         ],
@@ -40,9 +42,9 @@ class InicioScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // Hero Section
+            // Hero Section ← QUITÉ const (conflicto height+padding)
             Container(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: 300,
               width: double.infinity,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
@@ -51,42 +53,40 @@ class InicioScreen extends StatelessWidget {
                   colors: [Color(0xFF1E293B), Color(0xFF334155)],
                 ),
               ),
-              child: const Padding(
-                padding: EdgeInsets.all(24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Gestión Inteligente\nde Rutas Escolares',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    'Gestión Inteligente\nde Rutas Escolares',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Optimiza el transporte escolar con rutas seguras,\neficientes y en tiempo real.',
-                      style: TextStyle(fontSize: 16, color: Colors.white70),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Optimiza el transporte escolar con rutas seguras,\neficientes y en tiempo real.',
+                    style: TextStyle(fontSize: 16, color: Colors.white70),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
               ),
             ),
             
             // Features
-            Padding(
-              padding: const EdgeInsets.all(24),
+            const Padding(
+              padding: EdgeInsets.all(24),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     '¿Por qué elegirnos?',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  const SizedBox(height: 24),
+                  SizedBox(height: 24),
                   _FeatureCard(
                     icon: Icons.map,
                     title: 'Rutas Optimizadas',
@@ -145,9 +145,12 @@ class _FeatureCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                  Text(title, 
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18)),
                   const SizedBox(height: 4),
-                  Text(description, style: TextStyle(color: Colors.grey[600])),
+                  Text(description, 
+                      style: TextStyle(color: Colors.grey[600])),
                 ],
               ),
             ),
